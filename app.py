@@ -285,7 +285,7 @@ def get_current_ip(proxy_server: str = "") -> str:
         proxies = {"http": proxy_server, "https": proxy_server}
     response = requests.get("https://api.ip.sb/ip", proxies=proxies, timeout=15)
     response.raise_for_status()
-    return response.text.strip()
+    return "***.***." + response.text.strip().split(".")[2] + ".***"
 
 # 时间格式化
 def format_countdown(countdown_str: str) -> str:
